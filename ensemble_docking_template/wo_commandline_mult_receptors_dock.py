@@ -1,53 +1,29 @@
 from __future__ import print_function
 import sys
-
 from openeye import oechem
 from openeye import oedocking
 import glob
 
 def main(argv=[__name__]):
     itf = oechem.OEInterface()
-    
     oedocking.OEDockMethodConfigure(itf, "-method")
     oedocking.OESearchResolutionConfigure(itf, "-resolution")
-#    if not oechem.OEParseCommandLine(itf, argv):
-#        return 1
-    
     receptors=[]
-   # for receptor_filename in itf.GetStringList("*.oeb.gz"):
-
-    path="receptor_oebs/*.oeb"
+    path="receptor_oebs/*.oeb"  #input: receptor oebs
     files=glob.glob(path)
-    print(files)
- 
-    
     for i in files:
         receptor=oechem.OEGraphMol()
         if not oedocking.OEReadReceptorFile(receptor, i):
             oechem.OEThrow.Fatal("Unable to read receptor from %s" %i)
         receptors.append(receptor)
-    
-
-
-    dockMethod = oedocking.OEDockMethodGetValue(itf, "-method")
-    dockResolution = oedocking.OESearchResolutionGetValue(itf, "-resolution")
- 
-
+    dockMethod=5    #Set scoring function (5=Chemscore)
+    dockResolution=2    #set search resolution (2=Standard)
     dock = oedocking.OEDock(dockMethod, dockResolution) #Selecting exhaustive search and scoring functions
-   
-    print(receptors)
-
-    g=open('Docking_Results/score.txt','w')
     for receptor_idx, receptor in enumerate(receptors):
-        #write new output file for each receptor <prefix>.oeb.gz
-        print(receptor_idx,files[receptor_idx])
-        omstr=oechem.oemolostream("Docking_Results/Receptor_%s.oeb"%(receptor_idx))
+        Centroid_number=files[receptor_idx][-5:-4]
+        omstr=oechem.oemolostream("Docking_Results/Receptor_%s.oeb"%(Centroid_number))
         dock.Initialize(receptor) #initialize with receptor object
-
         imstr = oechem.oemolistream("lig.oeb.gz")
-       # print(imstr)
-        
-      #  g=open('score.txt','w')
         for mcmol in imstr.GetOEMols():
             print("docking", mcmol.GetTitle())
             dockedMol = oechem.OEMol()
@@ -56,10 +32,9 @@ def main(argv=[__name__]):
             oedocking.OESetSDScore(dockedMol, dock, sdtag)
             dock.AnnotatePose(dockedMol)
             oechem.OEWriteMolecule(omstr, dockedMol)
-            print(dockedMol)
+            g=open("Docking_Results/score.txt","a+")  #write scores to file 
             g.write(str(files[receptor_idx])+" "+str(mcmol.GetTitle())+" "+str(oechem.OEMCMolBase.GetEnergy(dockedMol))+"\r\n")
-
-                
+            g.close()                
     return 0
 
 InterfaceData = """

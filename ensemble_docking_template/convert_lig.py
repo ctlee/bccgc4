@@ -1,18 +1,13 @@
 from openeye import oechem
 import glob
 import sys
+
 def main(argv=[__name__]):
-
-
     ifs=oechem.oemolistream()
     ofs=oechem.oemolostream()
-
-
     path="lig.oeb.gz"
     files=glob.glob(path)
-    print(files)
-
-    for i in files:
+    for i in files:                         #convert ligands in oeb format to pdb format
         if ifs.open(i):
             if ofs.open(str(i)+".pdb"):
                 for mol in ifs.GetOEGraphMols():

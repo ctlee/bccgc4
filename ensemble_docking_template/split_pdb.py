@@ -2,25 +2,19 @@ import glob
 import sys
 
 def main(argv=[__name__]):
-
-    path="ligand_poses_pdbs/*.pdb"
+    path="ligand_poses_pdbs/*.pdb"  #10 pdbs, 1 per docked receptor--> split each pdb into 459 pdbs (1 per ligand)
     files=glob.glob(path)
-    print(files)
-
     for i in files:
+        centroid_number=i[-5:-4]
         fread=open(i,"r")
         Lines=fread.readlines()
-        print(Lines[0])
         count=0
         header=""
-        print(header)
         for line in Lines:
-            
-            
             if "COMPND" in line and line != header:
                 header=line
                 count +=1
-                fwrite=open("ligand_poses_pdbs/CatS_%s.pdb"%(count),"w")
+                fwrite=open("ligand_poses_pdbs/Centroid%s-CatS_%s.pdb"%(centroid_number,count),"w")
                 fwrite.write(line)
             else:
                 fwrite.write(line)
@@ -28,7 +22,6 @@ def main(argv=[__name__]):
         fread.close()
     return 0
 
-    
 if __name__ == "__main__":
     sys.exit(main(sys.argv))
        
