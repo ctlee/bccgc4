@@ -1,12 +1,11 @@
 import scipy.stats as stats
 
-dock = 'GLIDE_Docking'
-#dock = 'OE_new_docking'
-cluster = 'TICA_mindist'
+dock = 'GLIDE_core'
+cluster = 'PCA_CBA_PL'
 
-guess = open("/home/jegan/bccgc4/"+dock+"/"+cluster+"_docking/scores_ranked.csv","r")
-#guess = open("/home/jegan/bccgc4/"+dock+"/"+cluster+"_recepatoms_docking/Scores.csv","r")
-answer = open("Answers.csv","r")
+guess = open('/home/jegan/'+dock+'_docking/'+cluster+'_docking/scores_ranked.csv',"r")
+#guess = open("/home/jegan/bccgc4/"+dock+"/"+cluster+"_docking/Scores.csv","r")
+answer = open("/home/jegan/bccgc4/Answers.csv","r")
 
 rguess = guess.readlines()
 ranswer = answer.readlines()
@@ -53,3 +52,4 @@ with open('taus.txt','a') as newfile:
     newfile.write(cluster+' Kendall Tau = '+str(tau)+'\n')
     newfile.write(cluster+" P value = "+str(p_value)+'\n')
 exit()
+
