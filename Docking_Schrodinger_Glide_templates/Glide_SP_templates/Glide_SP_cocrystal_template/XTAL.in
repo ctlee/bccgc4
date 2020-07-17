@@ -1,0 +1,6 @@
+DOCKING_METHOD confgen
+AMIDE_MODE     penal
+GRIDFILE       /net/jam-amaro-shared/bccgc4/GLIDE_Docking/XTAL_docking/XTAL_grid.zip
+LIGANDFILE     /net/jam-amaro-shared/bccgc4/GLIDE_Docking/CatS_Ligands/ligprep_ligs.maegz
+PRECISION      SP
+

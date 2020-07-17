@@ -1,0 +1,5 @@
+GRID_CENTER   5.447, -0.7566, 13.6435
+GRIDFILE   /net/jam-amaro-shared/bccgc4/GLIDE_Docking/XTAL_grid/XTAL_grid.zip
+INNERBOX   10, 10, 10
+OUTERBOX   45, 45, 45
+RECEP_FILE   XTAL.maegz
