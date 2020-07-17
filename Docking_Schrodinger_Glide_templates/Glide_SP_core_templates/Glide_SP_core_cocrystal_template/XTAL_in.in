@@ -1,0 +1,10 @@
+CORE_ATOMS   2,3,4,5,6,32,36,37,39
+CORE_DEFINITION   smarts
+CORE_POS_MAX_RMSD   3.0
+CORE_RESTRAIN   True
+CORE_SMARTS   c1nnc(c12)CCNC2
+GRIDFILE   /home/jegan/GLIDE_core_docking/test_docking_1/test_grid_1.zip
+LIGANDFILE   /net/jam-amaro-shared/bccgc4/GLIDE_Docking/CatS_Ligands/ligprep_ligs.maegz
+PRECISION   SP
+REF_LIGAND_FILE   /home/jegan/GLIDE_core_docking/xtal_lig_unflipped.mae
+USE_REF_LIGAND   True

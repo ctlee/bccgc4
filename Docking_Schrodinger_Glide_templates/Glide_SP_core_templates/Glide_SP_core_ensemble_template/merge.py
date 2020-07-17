@@ -8,7 +8,7 @@ method = 'TICA'
 with open('merge.sh', 'w') as newfile:
 
     newfile.write('module load schrodinger\n')
-    newfile.write('$SCHRODINGER/utilities/glide_ensemble_merge -epv -JOBID ') #make sure that it's an ensemble pose viewer file (epv) because then it also comes with the original receptor for better viewing
+    newfile.write('$SCHRODINGER/utilities/glide_ensemble_merge -epv -JOBID ')
     
     for num in range(10):
         for path in glob.glob('./all_poses/*.maegz'):
