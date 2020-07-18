@@ -1,7 +1,9 @@
+#code to calculate the kendall's tau of a docking result
+
 import scipy.stats as stats
 
-dock = 'GLIDE_core'
-cluster = 'PCA_CBA_PL'
+dock = '' #docking software type and condition
+cluster = '' #clustering method
 
 guess = open('/home/jegan/'+dock+'_docking/'+cluster+'_docking/scores_ranked.csv',"r")
 #guess = open("/home/jegan/bccgc4/"+dock+"/"+cluster+"_docking/Scores.csv","r")
