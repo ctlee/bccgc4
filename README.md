@@ -5,7 +5,7 @@ We participated in the ligand affinity ranking aspect of [Grand Challenge 4, sub
 
 This is a repository of relevant analysis scripts and methods on our work before the challenge and much exploration that was performed after the challenge. 
 
-##Molecular Dynamics and Clustering
+## Molecular Dynamics and Clustering
 
 We first generated Molecular Dynamics (MD) trajectories of the CatS protein (PDBID: 5qc4) without the ligand (apo MD) and with the ligand (holo MD).
 
@@ -22,7 +22,7 @@ And by 2 different atom selections:
 
 For a total of 6 clustering methods, which from each we extracted 10 docking structures as the centroid of each of 10 discrete clusters.
 
-##Docking
+## Docking
 
 We initially docked to OpenEye's Fast Exhaustive Docking ([FRED](https://www.eyesopen.com/oedocking)), however, we did not produce results that effectively ranked the ligands.
 
@@ -30,7 +30,7 @@ We changed our docking software to Schrodinger's [Glide](https://www.schrodinger
 
 To obtain a rank ordering, we took the minimum score of each ligand out of the 10 scores it received for each clustering method.
 
-##Analysis
+## Analysis
 
 **Centroid Analysis**
 
@@ -50,6 +50,6 @@ To investigate the accuracy of our poses, we compared the common ligand core RMS
 
 To justify the comparison of pose accuracy to cocrystal poses, we investigated the similarity of the given test set ligands to the current [co-crystal ligands](https://www.rcsb.org/search?request=%7B%22query%22%3A%7B%22parameters%22%3A%7B%22attribute%22%3A%22rcsb_polymer_entity.pdbx_description%22%2C%22operator%22%3A%22contains_phrase%22%2C%22value%22%3A%22Cathepsin%20S%22%7D%2C%22service%22%3A%22text%22%2C%22type%22%3A%22terminal%22%2C%22node_id%22%3A0%7D%2C%22return_type%22%3A%22entry%22%2C%22request_options%22%3A%7B%22pager%22%3A%7B%22start%22%3A0%2C%22rows%22%3A100%7D%2C%22scoring_strategy%22%3A%22combined%22%2C%22sort%22%3A%5B%7B%22sort_by%22%3A%22score%22%2C%22direction%22%3A%22desc%22%7D%5D%7D%2C%22request_info%22%3A%7B%22src%22%3A%22ui%22%2C%22query_id%22%3A%2226c807bfd62453b07e06eb087386d14f%22%7D%7D) available in the [RCSB PDB](https://www.rcsb.org/) databank through Tanimoto Coefficient. 
 
-##Citing this Repository
+## Citing this Repository
 
 Please cite _______ if you use these scripts or analyses in your work.
