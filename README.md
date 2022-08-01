@@ -52,4 +52,8 @@ To justify the comparison of pose accuracy to cocrystal poses, we investigated t
 
 ## Citing this Repository
 
-Please cite _______ if you use these scripts or analyses in your work.
+Please cite this article
+
+Gan, J.L., Kumar, D., Chen, C. et al. Benchmarking ensemble docking methods in D3R Grand Challenge 4. J Comput Aided Mol Des 36, 87–99 (2022). https://doi.org/10.1007/s10822-021-00433-2
+
+if you use these scripts or analyses in your work.
